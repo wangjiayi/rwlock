@@ -1,0 +1,5 @@
+RWLock allows multiple readers threads to simultaneously access the data. But only one writer is allowed to do so at any one time. As usual, to writer such a lock, we need a lock (maybe more) and conditional variables.
+What are so special of this lock that we need to consider carefully ? What are the variables and data structures we may use to implement it ?
+Firstly, we need to consider when the readers/writers should wait. For a reader, it is definitely not allowed to read the data if there is some active writer modifying the shared data and vice versa.
+Secondly, we have to think about how to wake up other threads when the current reader/writer is done. In this homework we are required to implement reader-prefered/writer-prefered and FIFO/LIFO. By the way, the rwlock in std is not so complicated.
+Finally, to those who are not familiar with Rust yet, it will be suffering to write it.
